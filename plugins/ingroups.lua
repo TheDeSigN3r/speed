@@ -1537,22 +1537,22 @@ local function run(msg, matches)
     if matches[1] == 'lock' then
       local target = msg.to.id
        if matches[2] == 'tag' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked adstag ")
-        return lock_group_adstag(msg, data, target)
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked tag ")
+        return lock_group_tag(msg, data, target)
       end
       if matches[2] == 'emoji' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked emoji ")
         return lock_group_emoji(msg, data, target)
       end
-      if matches[2] == 'trash' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked trash ")
-        return lock_group_trash(msg, data, target)
+      if matches[2] == 'fosh' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked fosh ")
+        return lock_group_fosh(msg, data, target)
       end
       if matches[2] == 'sticker' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked sticker ")
         return lock_group_sticker(msg, data, target)
       end
-       if matches[2] == 'film' then
+       if matches[2] == 'video' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked video ")
         return lock_group_video(msg, data, target)
       end
@@ -1560,14 +1560,30 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked share ")
         return lock_group_share(msg, data, target)
       end
-      if matches[2] == 'file' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked file ")
+      if matches[2] == 'gif' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked gif ")
         return lock_group_gif(msg, data, target)
       end
-      if matches[2] == 'image' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked image ")
-        return lock_group_ax(msg, data, target)
+      if matches[2] == 'ph' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked ph ")
+        return lock_group_ph(msg, data, target)
       end
+      if matches[2] == 'pars' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked pars ")
+        return lock_group_pars(msg, data, target)
+       end
+       if matches[2] == 'china' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked china ")
+        return lock_group_china(msg, data, target)
+       end
+       if matches[2] == 'all' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked all ")
+        return lock_group_all(msg, data, target)
+       end
+       if matches[2] == 'media' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked media ")
+        return lock_group_media(msg, data, target)
+       end
        if matches[2] == 'chat' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked chat ")
         return lock_group_chat(msg, data, target)
@@ -1576,9 +1592,9 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked english ")
         return lock_group_en(msg, data, target)
       end
-      if matches[2] == 'voice' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked audio ")
-        return lock_group_audio(msg, data, target)
+      if matches[2] == 'audo' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked audo ")
+        return lock_group_audo(msg, data, target)
       end
        if matches[2] == 'link' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked adslink ")
@@ -1611,11 +1627,107 @@ local function run(msg, matches)
     if matches[2] == 'leave' then
        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked leaving ")
        return lock_group_leave(msg, data, target)
-     end
-   end
-    ☺☺☺☺☺اینجا بنویس متونتو
-     end
-   end
+      end
+    end
+    if matches[1] == 'unlock' then 
+      local target = msg.to.id
+      if matches[2] == 'tag' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked tag ")
+        return unlock_group_tag(msg, data, target)
+      end
+      if matches[2] == 'fosh' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked fosh ")
+        return unlock_group_trash(msg, data, target)
+      end
+       if matches[2] == 'sticker' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked sticker ")
+        return unlock_group_sticker(msg, data, target)
+      end
+       if matches[2] == 'gif' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked gif ")
+        return unlock_group_gif(msg, data, target)
+      end
+      if matches[2] == 'share' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked share ")
+        return unlock_group_share(msg, data, target)
+      end
+      if matches[2] == 'emoji' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked emoji ")
+        return unlock_group_emoji(msg, data, target)
+      end
+      if matches[2] == 'video' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked video ")
+        return unlock_group_video(msg, data, target)
+      end
+       if matches[2] == 'ph' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked ph ")
+        return unlock_group_ph(msg, data, target)
+      end
+       if matches[2] == 'pars' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked pars ")
+        return unlock_group_pars(msg, data, target)
+      end
+      if matches[2] == 'china' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked china ")
+        return unlock_group_china(msg, data, target)
+      end
+      if matches[2] == 'all' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked all ")
+        return unlock_group_all(msg, data, target)
+       end
+       if matches[2] == 'media' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked media ")
+        return unlock_group_media(msg, data, target)
+       end
+       if matches[2] == 'english' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked english ")
+        return unlock_group_en(msg, data, target)
+      end
+      if matches[2] == 'link' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked adslink ")
+        return unlock_group_adslink(msg, data, target)
+      end
+      if matches[2] == 'audo' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked audo ")
+        return unlock_group_audo(msg, data, target)
+      end
+      if matches[2] == 'chat' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked chat ")
+        return unlock_group_chat(msg, data, target)
+      end
+      if matches[2] == 'join' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked join ")
+        return unlock_group_join(msg, data, target)
+      end
+      if matches[2] == 'name' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked name ")
+        return unlock_group_namemod(msg, data, target)
+      end
+      if matches[2] == 'member' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked member ")
+        return unlock_group_membermod(msg, data, target)
+      end
+      if matches[2] == 'photo' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked photo ")
+        return unlock_group_photomod(msg, data, target)
+      end
+      if matches[2] == 'flood' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked flood ")
+        return unlock_group_floodmod(msg, data, target)
+      end
+      if matches[2] == 'arabic' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked arabic ")
+        return unlock_group_arabic(msg, data, target)
+      end
+      if matches[2] == 'bots' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked bots ")
+        return unlock_group_bots(msg, data, target)
+      end
+    if matches[2] == 'leave' then
+       savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked leaving ")
+       return unlock_group_leave(msg, data, target)
+      end
+    end
     if matches[1] == 'settings' then
       local target = msg.to.id
       savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group settings ")

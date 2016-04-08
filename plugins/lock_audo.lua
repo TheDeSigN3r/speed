@@ -1,7 +1,7 @@
 
 local function run(msg)
     local data = load_data(_config.moderation.data)
-    if data[tostring(msg.to.id)]['settings']['lock_audio'] == 'yes' then
+    if data[tostring(msg.to.id)]['settings']['lock_audo'] == 'yes' then
 --    if msg.media then 
   --  if not msg.media.captin == "sticker.webp"  then
     if not is_momod(msg) then

@@ -20,9 +20,12 @@ local function check_member_autorealm(cb_extra, success, result)
           lock_photo = 'no',
           lock_member = 'no',
           lock_english = 'no',
-          lock_vedio = 'no',
+          lock_video = 'no',
           anti_fosh = 'no',
           lock_share = 'no',
+          lock_audo = 'no',
+          lock_gif = 'no',
+          lock_sticker = 'no',
           flood = 'yes'
         }
       }

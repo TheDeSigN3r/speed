@@ -51,5 +51,3 @@ return {
 --Persian Translate; @behroozyaghi
 --ch : @nod32team
 --کپی بدون ذکر منبع حرام است--
- 
- 

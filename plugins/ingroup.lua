@@ -267,13 +267,58 @@ local function show_group_settingsmod(msg, data, target)
     if data[tostring(msg.to.id)]['settings']['leave_ban'] then
     	leave_ban = data[tostring(msg.to.id)]['settings']['leave_ban']
    	end
-    local fosh_protection = "Yes"
+    local lock_fosh = "no"
     if data[tostring(msg.to.id)]['settings']['antifosh'] then
-    	fosh_protection = data[tostring(msg.to.id)]['settings']['antifosh']
+    	lock_fosh = data[tostring(msg.to.id)]['settings']['antifosh']
    	end
-    local share_protection = "Yes"
+    local lock_share = "no"
     if data[tostring(msg.to.id)]['settings']['lock_share'] then
-    	bots_protection = data[tostring(msg.to.id)]['settings']['lock_share']
+    	lock_share = data[tostring(msg.to.id)]['settings']['lock_share']
+   	end    
+    local lock_chat = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_chat'] then
+    	lock_chat = data[tostring(msg.to.id)]['settings']['lock_chat']
+   	end 
+    local lock_sticker = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_sticker'] then
+    	lock_sticker = data[tostring(msg.to.id)]['settings']['lock_sticker']
+   	end
+    local lock_video = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_video'] then
+    	lock_video = data[tostring(msg.to.id)]['settings']['lock_video']
+   	end
+   local lock_all = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_all'] then
+    lock_all = data[tostring(msg.to.id)]['settings']['lock_all']
+   	end
+ 
+   local lock_gif = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_gif'] then
+    	lock_gif = data[tostring(msg.to.id)]['settings']['lock_gif']
+   	end
+   local lock_ph = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_ph'] then
+    	lock_ph = data[tostring(msg.to.id)]['settings']['lock_ph']
+   	end 
+   local lock_audo = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_audo'] then
+    	lock_audo = data[tostring(msg.to.id)]['settings']['lock_audo']
+   	end 
+   local lock_emoji = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_emoji'] then
+    	lock_gif = data[tostring(msg.to.id)]['settings']['lock_emoji']
+   	end
+   local lock_english = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_english'] then
+    	lock_english = data[tostring(msg.to.id)]['settings']['lock_english']
+   	end
+   local lock_china = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_cina'] then
+    	lock_china = data[tostring(msg.to.id)]['settings']['lock_china']
+   	end
+   local lock_pars = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_pars'] then
+    	lock_pars = data[tostring(msg.to.id)]['settings']['lock_pars']
    	end 
   local settings = data[tostring(target)]['settings']
   local text = "Group settings:\nLock group join : "..settings.lock_join.."\nLock group tag : "..settings.antitag.."\nLock group link : "..settings.antilink.."\nLock group name : "..settings.lock_name.."\nLock group photo : "..settings.lock_photo.."\nLock group member : "..settings.antifosh.."\nLock group fosh : "..settings.lock_chat.."\nLock group chat : "..settings.lock_all.."\nLock group all :  "..settings.lock_ph.."\nLock group ph :  "..settings.lock_gif.."\nLock group gif :  "..settings.lock_audo.."\nLock group audo : "..settings.lock_share.."\nLock group share : "..settings.lock_video.."\nLock group video : "..settings.lock_emoji.."\nLock group emoji : "..settings.lock_china.."\nLock group china : "..settings.lock_pars.."\nLock group pars : "..settings.lock_sticker.."\nLock group sticker : "..settings.lock_english.."\nLock group english : "..settings.lock_member.."\nLock group leave : "..leave_ban.."\nflood sensitivity : "..NUM_MSG_MAX.."\nBot protection : "..bots_protection--"\nPublic: "..public
@@ -431,8 +476,86 @@ save_data(_config.moderation.data, data)
 return 'Link has been unlocked'
 end
 end
-local function lock_group_namemod(msg, data, target)
+local function lock_group_fosh(msg, data, target)
+if not is_momod(msg) then
+return "For moderators only!"
+end
+local group_fosh_lock = data[tostring(target)]['settings']['antfosh']
+if group_link_lock == 'yes' then
+return 'Link is already locked'
+else
+data[tostring(target)]['settings']['antifosh'] = 'yes'
+save_data(_config.moderation.data, data)
+return 'fosh has been locked'
+end
+end
+local function unlock_group_fosh(msg, data, target)
+if not is_momod(msg) then
+return "For moderators only!"
+end
+local group_fosh_lock = data[tostring(target)]['settings']['antilink']
+if group_fosh_lock == 'no' then
+return 'fosh is already unlocked'
+else
+data[tostring(target)]['settings']['antifosh'] = 'no'
+save_data(_config.moderation.data, data)
+return 'fosh has been unlocked'
+end
+end
+local function lock_group_sticker(msg, data, target)
   if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_sticker_lock = data[tostring(target)]['settings']['lock_sticker']
+  if group_sticker_lock == 'yes' then
+    return 'Group sticker is already locked'
+  else
+    data[tostring(target)]['settings']['lock_sticker'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group sticker has been locked'
+  end
+end
+local function unlock_group_sticker(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_sticker_lock = data[tostring(target)]['settings']['lock_sticker']
+  if group_sticker_lock == 'no' then
+    return 'Group sticker is not locked'
+  else
+    data[tostring(target)]['settings']['lock_sticker'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group sticker has been unlocked'
+  end
+end 
+local function lock_group_video(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_video_lock = data[tostring(target)]['settings']['lock_video']
+  if group_video_lock == 'yes' then
+    return 'Group video is already locked'
+  else
+    data[tostring(target)]['settings']['lock_video'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group video has been locked'
+  end
+end
+local function unlock_group_video(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_video_lock = data[tostring(target)]['settings']['lock_video']
+  if group_video_lock == 'no' then
+    return 'Group video is not locked'
+  else
+    data[tostring(target)]['settings']['lock_video'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group video has been unlocked'
+  end
+end 
+local function lock_group_namemod(msg, data, target)
+if not is_momod(msg) then
     return "For moderators only!"
   end
   local group_name_set = data[tostring(target)]['settings']['set_name']
@@ -446,6 +569,215 @@ local function lock_group_namemod(msg, data, target)
     return 'Group name has been locked'
   end
 end
+local function lock_group_share(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_share_lock = data[tostring(target)]['settings']['lock_share']
+  if group_share_lock == 'yes' then
+    return 'Group share is already locked'
+  else
+    data[tostring(target)]['settings']['lock_share'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group share has been locked'
+  end
+end
+
+local function unlock_group_share(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_share_lock = data[tostring(target)]['settings']['lock_share']
+  if group_share_lock == 'no' then
+    return 'Group share is not locked'
+  else
+    data[tostring(target)]['settings']['lock_share'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group share has been unlocked'
+  end
+end 
+local function lock_group_gif(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_gif_lock = data[tostring(target)]['settings']['lock_gif']
+  if group_gif_lock == 'yes' then
+    return 'Group gif and files is already locked'
+  else
+    data[tostring(target)]['settings']['lock_gif'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group gif and files has been locked'
+  end
+end
+local function unlock_group_gif(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_gif_lock = data[tostring(target)]['settings']['lock_gif']
+  if group_gif_lock == 'no' then
+    return 'Group files is not locked'
+  else
+    data[tostring(target)]['settings']['lock_gif'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group gif and files has been unlocked'
+  end
+end
+ local function lock_group_emoji(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_emoji_lock = data[tostring(target)]['settings']['lock_emoji']
+  if group_emoji_lock == 'yes' then
+    return 'Group emoji is already locked'
+  else
+    data[tostring(target)]['settings']['lock_emoji'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group emoji has been locked'
+  end
+end
+local function unlock_group_emoji(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_emoji_lock = data[tostring(target)]['settings']['lock_emoji']
+  if group_emoji_lock == 'no' then
+    return 'Group emoji is not locked'
+  else
+    data[tostring(target)]['settings']['lock_emoji'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group emoji has been unlocked'
+  end
+end
+local function lock_group_chat(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_chat_lock = data[tostring(target)]['settings']['lock_chat']
+  if group_chat_lock == 'yes' then
+    return 'Group chat is already locked'
+  else
+    data[tostring(target)]['settings']['lock_chat'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group chat has been locked'
+  end
+end
+local function unlock_group_chat(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_chat_lock = data[tostring(target)]['settings']['lock_chat']
+  if group_chat_lock == 'no' then
+    return 'Group adstag is not locked'
+  else
+    data[tostring(target)]['settings']['lock_chat'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group chat has been unlocked'
+  end
+end
+ local function lock_group_english(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_share_lock = data[tostring(target)]['settings']['lock_english']
+  if group_english_lock == 'yes' then
+    return 'Group english is already locked'
+  else
+    data[tostring(target)]['settings']['lock_english'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group english has been locked'
+  end
+end
+local function unlock_group_english(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_english_lock = data[tostring(target)]['settings']['lock_english']
+  if group_english_lock == 'no' then
+    return 'Group english is not locked'
+  else
+    data[tostring(target)]['settings']['lock_english'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group english has been unlocked'
+  end
+end
+local function lock_group_share(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_audo_lock = data[tostring(target)]['settings']['lock_audo']
+  if group_audo_lock == 'yes' then
+    return 'Group audo is already locked'
+  else
+    data[tostring(target)]['settings']['lock_audo'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group audo has been locked'
+  end
+end
+local function unlock_group_audo(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_share_lock = data[tostring(target)]['settings']['lock_audo']
+  if group_audo_lock == 'no' then
+    return 'Group audo is not locked'
+  else
+    data[tostring(target)]['settings']['lock_audo'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group audo has been unlocked'
+  end
+end
+local function lock_group_ph(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_ph_lock = data[tostring(target)]['settings']['lock_ph']
+  if group_ph_lock == 'yes' then
+    return 'Group photo is already locked'
+  else
+    data[tostring(target)]['settings']['lock_ph'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group photo has been locked'
+  end
+end
+local function unlock_group_ph(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_share_lock = data[tostring(target)]['settings']['lock_ph']
+  if group_ph_lock == 'no' then
+    return 'Group photo is not locked'
+  else
+    data[tostring(target)]['settings']['lock_ph'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group photo has been unlocked'
+  end
+end
+local function lock_group_pars(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_pars_lock = data[tostring(target)]['settings']['lock_pars']
+  if group_pars_lock == 'yes' then
+    return 'Group pars is already locked'
+  else
+    data[tostring(target)]['settings']['lock_pars'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group pars has been locked'
+  end
+end
+local function unlock_group_pars(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_pars_lock = data[tostring(target)]['settings']['lock_pars']
+  if group_pars_lock == 'no' then
+    return 'Group pars is not locked'
+  else
+    data[tostring(target)]['settings']['lock_pars'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group pars has been unlocked'
+  end
+end  
 local function unlock_group_namemod(msg, data, target)
   if not is_momod(msg) then
     return "For moderators only!"
@@ -473,7 +805,6 @@ local function lock_group_floodmod(msg, data, target)
     return 'Group flood has been locked'
   end
 end
-
 local function unlock_group_floodmod(msg, data, target)
   if not is_owner(msg) then
     return "Only admins can do it for now"
@@ -487,7 +818,6 @@ local function unlock_group_floodmod(msg, data, target)
     return 'Group flood has been unlocked'
   end
 end
-
 local function lock_group_membermod(msg, data, target)
   if not is_momod(msg) then
     return "For moderators only!"
@@ -1154,12 +1484,64 @@ local function run(msg, matches)
        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked tag ")
        return lock_group_tag(msg, data, target)
      end
+         if matches[2] == 'english' then
+       savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked english ")
+       return lock_group_english(msg, data, target)
+     end
+         if matches[2] == 'share' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked share ")
+        return lock_group_share(msg, data, target)
+      end
+         if matches[2] == 'pars' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked pars ")
+        return lock_group_pars(msg, data, target)
+      end       
+         if matches[2] == 'chat' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked chat ")
+        return lock_group_chat(msg, data, target)
+      end   
+         if matches[2] == 'emoji' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked emoji ")
+        return lock_group_emoji(msg, data, target)
+      end
+         if matches[2] == 'sticker' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked sticker ")
+        return lock_group_sticker(msg, data, target)
+      end    
+         if matches[2] == 'china' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked china ")
+        return lock_group_china(msg, data, target)
+      end 
+         if matches[2] == 'fosh' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked fosh ")
+        return lock_group_fosh(msg, data, target)
+      end       
+         if matches[2] == 'all' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked all ")
+        return lock_group_all(msg, data, target)
+      end    
+         if matches[2] == 'ph' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked ph ")
+        return lock_group_ph(msg, data, target)
+      end
+         if matches[2] == 'gif' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked gif ")
+        return lock_group_gif(msg, data, target)
+      end    
+      if matches[2] == 'audo' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked audo ")
+        return lock_group_audo(msg, data, target)
+      end    
+      if matches[2] == 'video' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked video ")
+        return lock_group_video(msg, data, target)
+      end
 	 if matches[2] == 'join' then
        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked joining link ")
        return lock_group_join(msg, data, target)
      end
    end
-    if matches[1] == 'unlock' then 
+   if matches[1] == 'unlock' then 
       local target = msg.to.id
       if matches[2] == 'name' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked name ")
@@ -1177,11 +1559,63 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked flood ")
         return unlock_group_floodmod(msg, data, target)
       end
+      if matches[2] == 'english' then
+       savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked english ")
+       return lock_group_english(msg, data, target)
+      end
+      if matches[2] == 'share' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked share ")
+        return lock_group_share(msg, data, target)
+      end
+      if matches[2] == 'pars' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked pars ")
+        return lock_group_pars(msg, data, target)
+      end       
+      if matches[2] == 'chat' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked chat ")
+        return lock_group_chat(msg, data, target)
+      end   
+      if matches[2] == 'emoji' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked emoji ")
+        return lock_group_emoji(msg, data, target)
+      end
+      if matches[2] == 'sticker' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked sticker ")
+        return lock_group_sticker(msg, data, target)
+      end    
+      if matches[2] == 'china' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked china ")
+        return lock_group_china(msg, data, target)
+      end 
+      if matches[2] == 'fosh' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked fosh ")
+        return lock_group_fosh(msg, data, target)
+      end       
+      if matches[2] == 'all' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked all ")
+        return lock_group_all(msg, data, target)
+      end    
+      if matches[2] == 'ph' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked ph ")
+        return lock_group_ph(msg, data, target)
+      end
+      if matches[2] == 'gif' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked gif ")
+        return lock_group_gif(msg, data, target)
+      end    
+      if matches[2] == 'audo' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked audo ")
+        return lock_group_audo(msg, data, target)
+      end    
+      if matches[2] == 'video' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked video ")
+        return lock_group_video(msg, data, target)
+      end
       if matches[2] == 'arabic' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked arabic ")
         return unlock_group_arabic(msg, data, target)
       end
-	  if matches[2] == 'link' then
+      if matches[2] == 'link' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked link ")
         return unlock_group_link(msg, data, target)
       end
@@ -1189,15 +1623,15 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked bots ")
         return unlock_group_bots(msg, data, target)
       end
-	  if matches[2] == 'join' then
+      if matches[2] == 'join' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked joining link ")
         return unlock_group_join(msg, data, target)
       end
-    if matches[2] == 'leave' then
+      if matches[2] == 'leave' then
        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked leaving ")
        return unlock_group_leave(msg, data, target)
      end
-	 if matches[2] == 'tag' then
+     if matches[2] == 'tag' then
        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked tag ")
        return unlock_group_tag(msg, data, target)
      end
@@ -1300,8 +1734,8 @@ local function run(msg, matches)
       if not is_momod(msg) then
         return "For moderators only!"
       end
-      if tonumber(matches[2]) < 5 or tonumber(matches[2]) > 20 then
-        return "Wrong number,range is [5-20]"
+      if tonumber(matches[2]) < 1 or tonumber(matches[2]) > 40 then
+        return "Wrong number,range is [1-40]"
       end
       local flood_max = matches[2]
       data[tostring(msg.to.id)]['settings']['flood_msg_max'] = flood_max

@@ -340,7 +340,7 @@ local function show_group_settingsmod(msg, data, target)
     	leave_ban = data[tostring(msg.to.id)]['settings']['leave_ban']
    	end
   local settings = data[tostring(target)]['settings']
-  local text = "Group settings:\nLock group join : "..settings.lock_join.."\nLock group tag : "..settings.antitag.."\nLock group link : "..settings.antilink.."\nLock group name : "..settings.lock_name.."\nLock group photo : "..settings.lock_photo.."\nLock group member : "..settings.antifosh.."\nLock group fosh : "..settings.lock_chat.."\nLock group chat : "..settings.lock_all.."\nLock group all : "..settings.lock_ph.."\nLock group ph : "..settings.lock_gif.."\nLock group gif : "..settings.lock_audo.."\nLock group audo : "..settings.lock_share.."\nLock group share : "..settings.lock_video.."\nLock group video : "..settings.lock_emoji.."\nLock group emoji : "..settings.lock_china.."\nLock group china : "..settings.lock_pars.."\nLock group pars : "..settings.lock_sticker.."\nLock group sticker : "..settings.lock_english.."\nLock group english : "..settings.lock_member.."\nLock group leave : "..leave_ban.."\nflood sensitivity : "..NUM_MSG_MAX.."\nBot protection : "..bots_protection--"\nPublic: "..public
+  local text = "Group settings:\nLock group join : "..settings.lock_join.."\nLock group tag : "..settings.lock_tag.."\nLock group link : "..settings.lock_link.."\nLock group name : "..settings.lock_name.."\nLock group photo : "..settings.lock_photo.."\nLock group member : "..settings.antifosh.."\nLock group fosh : "..settings.lock_chat.."\nLock group chat : "..settings.lock_all.."\nLock group all : "..settings.lock_ph.."\nLock group ph : "..settings.lock_gif.."\nLock group gif : "..settings.lock_audo.."\nLock group audo : "..settings.lock_share.."\nLock group share : "..settings.lock_video.."\nLock group video : "..settings.lock_emoji.."\nLock group emoji : "..settings.lock_china.."\nLock group china : "..settings.lock_media.."\nLock group media : "..settings.lock_pars.."\nLock group pars : "..settings.lock_sticker.."\nLock group sticker : "..settings.lock_english.."\nLock group english : "..settings.lock_member.."\nLock group leave : "..leave_ban.."\nflood sensitivity : "..NUM_MSG_MAX.."\nBot protection : "..bots_protection--"\nPublic: "..public
   return text
 end
 
@@ -579,7 +579,34 @@ local function unlock_group_membermod(msg, data, target)
     return 'Group members has been unlocked'
   end
 end
-☺☺☺
+
+local function lock_group_media(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_media_lock = data[tostring(target)]['settings']['lock_media']
+  if group_media_lock == 'yes' then
+    return 'Group media is already locked'
+  else
+    data[tostring(target)]['settings']['lock_media'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group media has been locked'
+  end
+end
+local function unlock_group_media(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_media_lock = data[tostring(target)]['settings']['lock_media']
+  if group_media_lock == 'no' then
+    return 'Group media is not locked'
+  else
+    data[tostring(target)]['settings']['lock_media'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group media has been unlocked'
+  end
+end
+ 
 local function lock_group_fosh(msg, data, target)
   if not is_momod(msg) then
     return "Only moderators can do it for now"

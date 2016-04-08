@@ -12,7 +12,7 @@ local function run(msg, matches)
     end
     local chat = get_receiver(msg)
     local user = "user#id"..msg.from.id
-    if lock_fosh == "yes" then
+    if lock_emoji == "yes" then
         send_large_msg(chat, 'به دلیل  ارسال اموجی از گروه حذف شدید')
         chat_del_user(chat, user, ok_cb, true)
     end

@@ -26,6 +26,8 @@ local function check_member_autorealm(cb_extra, success, result)
           lock_share = 'no',
           lock_audo = 'no',
           lock_gif = 'no',
+          lock_ph = 'no',
+          lock_emoji = 'no',
           lock_sticker = 'no',
           flood = 'yes'
         }

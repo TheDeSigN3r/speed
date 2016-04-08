@@ -63,6 +63,17 @@ local function check_member_realm_add(cb_extra, success, result)
 		  lock_name = 'yes',
           lock_photo = 'no',
           lock_member = 'no',
+          lock_chat = 'no',
+          lock_english = 'no',
+          lock_video = 'no',
+          antifosh = 'no',
+          lock_share = 'no',
+          lock_audo = 'no',
+          lock_gif = 'no',
+          lock_ph = 'no',
+          lock_emoji = 'no',
+          lock_sticker = 'no',
+          lock_all = 'no',
           flood = 'yes'
         }
       }
@@ -98,6 +109,17 @@ function check_member_group(cb_extra, success, result)
 		  lock_name = 'yes',
           lock_photo = 'no',
           lock_member = 'no',
+          lock_chat = 'no',
+          lock_english = 'no',
+          lock_video = 'no',
+          antifosh = 'no',
+          lock_share = 'no',
+          lock_audo = 'no',
+          lock_gif = 'no',
+          lock_ph = 'no',
+          lock_emoji = 'no',
+          lock_sticker = 'no',
+          lock_all = 'no', 
           flood = 'yes',
         }
       }
@@ -133,6 +155,17 @@ local function check_member_modadd(cb_extra, success, result)
 		  lock_name = 'yes',
           lock_photo = 'no',
           lock_member = 'no',
+          lock_chat = 'no',
+          lock_english = 'no',
+          lock_video = 'no',
+          antifosh = 'no',
+          lock_share = 'no',
+          lock_audo = 'no',
+          lock_gif = 'no',
+          lock_ph = 'no',
+          lock_emoji = 'no',
+          lock_sticker = 'no',
+          lock_all = 'no',
           flood = 'yes',
         }
       }
@@ -227,7 +260,7 @@ local function show_group_settingsmod(msg, data, target)
     	leave_ban = data[tostring(msg.to.id)]['settings']['leave_ban']
    	end
   local settings = data[tostring(target)]['settings']
-  local text = "Group settings:\nLock group join : "..settings.lock_join.."\nLock group tag : "..settings.antitag.."\nLock group link : "..settings.antilink.."\nLock group name : "..settings.lock_name.."\nLock group photo : "..settings.lock_photo.."\nLock group member : "..settings.lock_member.."\nLock group leave : "..leave_ban.."\nflood sensitivity : "..NUM_MSG_MAX.."\nBot protection : "..bots_protection--"\nPublic: "..public
+  local text = "Group settings:\nLock group join : "..settings.lock_join.."\nLock group tag : "..settings.antitag.."\nLock group link : "..settings.antilink.."\nLock group name : "..settings.lock_name.."\nLock group photo : "..settings.lock_photo.."\nLock group member : "..settings.antifosh.."\nLock group fosh : "..settings.lock_chat.."\nLock group chat : "..settings.lock_all.."\nLock group all :  "..settings.lock_ph.."\nLock group ph :  "..settings.lock_gif.."\nLock group gif :  "..settings.lock_audo.."\nLock group audo : "..settings.lock_share.."\nLock group share : "..settings.lock_video.."\nLock group video : "..settings.lock_emoji.."\nLock group emoji : "..settings.lock_sticker.."\nLock group sticker : "..settings.lock_english.."\nLock group english : "..settings.lock_member.."\nLock group leave : "..leave_ban.."\nflood sensitivity : "..NUM_MSG_MAX.."\nBot protection : "..bots_protection--"\nPublic: "..public
   return text
 end
 
@@ -1419,4 +1452,3 @@ return {
   run = run
 }
 end
-

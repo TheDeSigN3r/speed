@@ -271,6 +271,70 @@ local function show_group_settingsmod(msg, data, target)
     if data[tostring(msg.to.id)]['settings']['lock_bots'] then
     	bots_protection = data[tostring(msg.to.id)]['settings']['lock_bots']
    	end
+        local lock_arabic = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_arabic'] then
+    	lock_arabic = data[tostring(msg.to.id)]['settings']['lock_arabic']
+   	end
+   	local lock_share = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_share'] then
+    	lock_share = data[tostring(msg.to.id)]['settings']['lock_share']
+   	end
+   	local lock_sticker = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_sticker'] then
+    	lock_sticker = data[tostring(msg.to.id)]['settings']['lock_sticker']
+   	end
+   	local lock_video = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_video'] then
+    	lock_video = data[tostring(msg.to.id)]['settings']['lock_video']
+   	end
+   	local lock_gif = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_gif'] then
+    	lock_gif = data[tostring(msg.to.id)]['settings']['lock_gif']
+   	end
+   	local lock_ph = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_ph'] then
+    	lock_ph = data[tostring(msg.to.id)]['settings']['lock_ph']
+   	end
+   	local lock_fosh = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_fosh'] then
+    	lock_fosh = data[tostring(msg.to.id)]['settings']['lock_fosh']
+   	end
+   	 local lock_audo = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_audo'] then
+    	lock_audio = data[tostring(msg.to.id)]['settings']['lock_audo']
+   	end
+   	local lock_emoji = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_emoji'] then
+    	lock_emoji = data[tostring(msg.to.id)]['settings']['lock_emoji']
+   	end
+   	local lock_english = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_english'] then
+    	lock_en = data[tostring(msg.to.id)]['settings']['lock_english']
+   	end
+   	 local lock_chat = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_chat'] then
+    	lock_chat = data[tostring(msg.to.id)]['settings']['lock_chat']
+   	end
+   	local lock_join = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_join'] then
+    	lock_join = data[tostring(msg.to.id)]['settings']['lock_join']
+   	end
+        local lock_china = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_china'] then
+    	lock_china = data[tostring(msg.to.id)]['settings']['lock_china']
+   	end
+   	local lock_all = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_all'] then
+    	lock_all = data[tostring(msg.to.id)]['settings']['lock_all']
+   	end
+   	local lock_media = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_media'] then
+    	lock_media = data[tostring(msg.to.id)]['settings']['lock_media']
+   	end
+   	local lock_pars = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_pars'] then
+    	lock_pars = data[tostring(msg.to.id)]['settings']['lock_pars']
+   	end
     local leave_ban = "no"
     if data[tostring(msg.to.id)]['settings']['leave_ban'] then
     	leave_ban = data[tostring(msg.to.id)]['settings']['leave_ban']

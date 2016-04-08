@@ -29,6 +29,7 @@ local function check_member_autorealm(cb_extra, success, result)
           lock_ph = 'no',
           lock_emoji = 'no',
           lock_sticker = 'no',
+          lock_all = 'no',
           flood = 'yes'
         }
       }

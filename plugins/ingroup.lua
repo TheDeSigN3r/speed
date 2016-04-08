@@ -31,6 +31,7 @@ local function check_member_autorealm(cb_extra, success, result)
           lock_sticker = 'no',
           lock_all = 'no',
           lock_china = 'no',
+          lock_pars = 'no',
           flood = 'yes'
         }
       }
@@ -76,6 +77,7 @@ local function check_member_realm_add(cb_extra, success, result)
           lock_sticker = 'no',
           lock_all = 'no',
           lock_china = 'no',
+          lock_pars = 'no',
           flood = 'yes'
         }
       }
@@ -123,6 +125,7 @@ function check_member_group(cb_extra, success, result)
           lock_sticker = 'no',
           lock_all = 'no', 
           lock_china = 'no',
+          lock_pars = 'no',
           flood = 'yes',
         }
       }
@@ -170,6 +173,7 @@ local function check_member_modadd(cb_extra, success, result)
           lock_sticker = 'no',
           lock_all = 'no',
           lock_china = 'no',
+          lock_pars = 'no',
           flood = 'yes',
         }
       }
@@ -263,6 +267,14 @@ local function show_group_settingsmod(msg, data, target)
     if data[tostring(msg.to.id)]['settings']['leave_ban'] then
     	leave_ban = data[tostring(msg.to.id)]['settings']['leave_ban']
    	end
+    local fosh_protection = "Yes"
+    if data[tostring(msg.to.id)]['settings']['antifosh'] then
+    	fosh_protection = data[tostring(msg.to.id)]['settings']['antifosh']
+   	end
+    local share_protection = "Yes"
+    if data[tostring(msg.to.id)]['settings']['lock_share'] then
+    	bots_protection = data[tostring(msg.to.id)]['settings']['lock_share']
+   	end 
   local settings = data[tostring(target)]['settings']
   local text = "Group settings:\nLock group join : "..settings.lock_join.."\nLock group tag : "..settings.antitag.."\nLock group link : "..settings.antilink.."\nLock group name : "..settings.lock_name.."\nLock group photo : "..settings.lock_photo.."\nLock group member : "..settings.antifosh.."\nLock group fosh : "..settings.lock_chat.."\nLock group chat : "..settings.lock_all.."\nLock group all :  "..settings.lock_ph.."\nLock group ph :  "..settings.lock_gif.."\nLock group gif :  "..settings.lock_audo.."\nLock group audo : "..settings.lock_share.."\nLock group share : "..settings.lock_video.."\nLock group video : "..settings.lock_emoji.."\nLock group emoji : "..settings.lock_china.."\nLock group china : "..settings.lock_pars.."\nLock group pars : "..settings.lock_sticker.."\nLock group sticker : "..settings.lock_english.."\nLock group english : "..settings.lock_member.."\nLock group leave : "..leave_ban.."\nflood sensitivity : "..NUM_MSG_MAX.."\nBot protection : "..bots_protection--"\nPublic: "..public
   return text

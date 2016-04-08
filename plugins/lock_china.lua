@@ -1,51 +1,55 @@
-local function run(msg)
-
+local function run(msg, matches)
+    if is_owner(msg) then
+        return
+    end
     local data = load_data(_config.moderation.data)
-
-     if data[tostring(msg.to.id)]['settings']['lock_china'] == 'yes' then
-
-
-if not is_momod(msg) then
-
-
-chat_del_user('chat#id'..msg.to.id, 'user#id'..msg.from.id, ok_cb, true)
-    local msg = 'You cannot use CHINA words here . Bye ! '
-   local receiver = msg.to.id
-    send_large_msg('chat#id'..receiver, msgads.."\n", ok_cb, false)
-
-      end
-   end
-
-
-return {
-patterns = {
-"[啊](.*)",
-"[不](.*)",
-"[从](.*)",
-"[的](.*)",
-"[饿](.*)",
-"[分](.*)",
-"[个](.*)",
-"[和](.*)",
-"[就](.*)",
-"[看](.*)",
-"[了](.*)",
-"[吗](.*)",
-"[你](.*)",
-"[哦](.*)",
-"[评](.*)",
-"[去](.*)",
-"[日](.*)",
-"[是](.*)",
-"[他](.*)",
-"[有](.*)",
-"[哦](.*)",
-"[看](.*)",
-"[小](.*)",
-"[有](.*)",
-"[在](.*)",
-"[安排臭豆腐国际机场迷你脾气人生特别想](.*)",
-}, 
-run = run
-}
+    if data[tostring(msg.to.id)] then
+        if data[tostring(msg.to.id)]['settings'] then
+            if data[tostring(msg.to.id)]['settings']['lock_china'] then
+                lock_china = data[tostring(msg.to.id)]['settings']['lock_china']
+            end
+        end
+    end
+    local chat = get_receiver(msg)
+    local user = "user#id"..msg.from.id
+    if lock_china == "yes" then
+        send_large_msg(chat, 'You cannot use CHINA words here . Bye !')
+        chat_del_user(chat, user, ok_cb, true)
+    end
 end
+ 
+return {
+  patterns = {
+    "(去)",
+    "(我)",
+    "(饿)",
+    "(日)",
+    "(他)",
+    "(有)",
+    "(哦)",
+    "(评)",
+    "(啊)",
+    "(是)",
+    "(的)",
+    "(分)",
+    "(个",
+    "(和)",
+    "(就)",
+    "(看)",
+    "(了)",
+    "(在)",
+    "(小)",
+    "(从)",
+    "(不)",
+    "(你)",
+    "(吗)",
+    "(去我饿日他有人说哦评啊上的分个和就看来在心从从来你吗)
+  },
+  run = run
+}
+--Copyright and edit; @behroozyaghi
+--Persian Translate; @behroozyaghi
+--ch : @nod32team
+--کپی بدون ذکر منبع حرام است--
+ 
+ 

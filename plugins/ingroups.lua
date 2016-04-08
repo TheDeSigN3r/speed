@@ -579,8 +579,358 @@ local function unlock_group_membermod(msg, data, target)
     return 'Group members has been unlocked'
   end
 end
+☺☺☺
+local function lock_group_fosh(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_fosh_lock = data[tostring(target)]['settings']['lock_fosh']
+  if group_fosh_lock == 'yes' then
+    return 'Group fosh is already locked'
+  else
+    data[tostring(target)]['settings']['lock_fosh'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group fosh has been locked'
+  end
+end
+local function unlock_group_fosh(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_fosh_lock = data[tostring(target)]['settings']['lock_fosh']
+  if group_fosh_lock == 'no' then
+    return 'Group fosh is not locked'
+  else
+    data[tostring(target)]['settings']['lock_fosh'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group fosh has been unlocked'
+  end
+end
 
+local function lock_group_sticker(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_sticker_lock = data[tostring(target)]['settings']['lock_sticker']
+  if group_sticker_lock == 'yes' then
+    return 'Group sticker is already locked'
+  else
+    data[tostring(target)]['settings']['lock_sticker'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group sticker has been locked'
+  end
+end
+local function unlock_group_sticker(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_sticker_lock = data[tostring(target)]['settings']['lock_sticker']
+  if group_sticker_lock == 'no' then
+    return 'Group sticker is not locked'
+  else
+    data[tostring(target)]['settings']['lock_sticker'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group sticker has been unlocked'
+  end
+end
 
+local function lock_group_video(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_video_lock = data[tostring(target)]['settings']['lock_video']
+  if group_video_lock == 'yes' then
+    return 'Group video is already locked'
+  else
+    data[tostring(target)]['settings']['lock_video'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group video has been locked'
+  end
+end
+local function unlock_group_video(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_video_lock = data[tostring(target)]['settings']['lock_video']
+  if group_video_lock == 'no' then
+    return 'Group video is not locked'
+  else
+    data[tostring(target)]['settings']['lock_video'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group video has been unlocked'
+  end
+end
+
+local function lock_group_share(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_share_lock = data[tostring(target)]['settings']['lock_share']
+  if group_share_lock == 'yes' then
+    return 'Group share is already locked'
+  else
+    data[tostring(target)]['settings']['lock_share'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group share has been locked'
+  end
+end
+local function unlock_group_share(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_share_lock = data[tostring(target)]['settings']['lock_share']
+  if group_share_lock == 'no' then
+    return 'Group share is not locked'
+  else
+    data[tostring(target)]['settings']['lock_share'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group share has been unlocked'
+  end
+end
+
+ local function lock_group_gif(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_gif_lock = data[tostring(target)]['settings']['lock_gif']
+  if group_gif_lock == 'yes' then
+    return 'Group gif and files is already locked'
+  else
+    data[tostring(target)]['settings']['lock_gif'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group gif and files has been locked'
+  end
+end
+local function unlock_group_gif(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_gif_lock = data[tostring(target)]['settings']['lock_gif']
+  if group_gif_lock == 'no' then
+    return 'Group files is not locked'
+  else
+    data[tostring(target)]['settings']['lock_gif'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group gif and files has been unlocked'
+  end
+end
+
+ local function lock_group_ph(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_ph_lock = data[tostring(target)]['settings']['lock_ph']
+  if group_ph_lock == 'yes' then
+    return 'Group image is already locked'
+  else
+    data[tostring(target)]['settings']['lock_ph'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group image has been locked'
+  end
+end
+local function unlock_group_ph(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_ph_lock = data[tostring(target)]['settings']['lock_ph']
+  if group_ph_lock == 'no' then
+    return 'Group image is not locked'
+  else
+    data[tostring(target)]['settings']['lock_ph'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group image has been unlocked'
+  end
+end
+
+ local function lock_group_english(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_english_lock = data[tostring(target)]['settings']['lock_english']
+  if group_english_lock == 'yes' then
+    return 'Group engish is already locked'
+  else
+    data[tostring(target)]['settings']['lock_english'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group english has been locked'
+  end
+end
+local function unlock_group_english(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_english_lock = data[tostring(target)]['settings']['lock_english']
+  if group_english_lock == 'no' then
+    return 'Group english is not locked'
+  else
+    data[tostring(target)]['settings']['lock_english'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group english has been unlocked'
+  end
+end
+
+ local function lock_group_emoji(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_emoji_lock = data[tostring(target)]['settings']['lock_emoji']
+  if group_emoji_lock == 'yes' then
+    return 'Group emoji is already locked'
+  else
+    data[tostring(target)]['settings']['lock_emoji'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group emoji has been locked'
+  end
+end
+local function unlock_group_emoji(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_emoji_lock = data[tostring(target)]['settings']['lock_emoji']
+  if group_emoji_lock == 'no' then
+    return 'Group emoji is not locked'
+  else
+    data[tostring(target)]['settings']['lock_emoji'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group emoji has been unlocked'
+  end
+end
+
+ local function lock_group_audo(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_audo_lock = data[tostring(target)]['settings']['lock_audio']
+  if group_audio_lock == 'yes' then
+    return 'Group audio is already locked'
+  else
+    data[tostring(target)]['settings']['lock_audo'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group audio has been locked'
+  end
+end
+local function unlock_group_audio(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_audio_lock = data[tostring(target)]['settings']['lock_audo']
+  if group_audo_lock == 'no' then
+    return 'Group audio is not locked'
+  else
+    data[tostring(target)]['settings']['lock_audo'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group audio has been unlocked'
+  end
+end
+
+ local function lock_group_chat(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_chat_lock = data[tostring(target)]['settings']['lock_chat']
+  if group_chat_lock == 'yes' then
+    return 'Group chat is already locked'
+  else
+    data[tostring(target)]['settings']['lock_chat'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group chat has been locked'
+  end
+end
+local function unlock_group_chat(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_chat_lock = data[tostring(target)]['settings']['lock_chat']
+  if group_chat_lock == 'no' then
+    return 'Group adstag is not locked'
+  else
+    data[tostring(target)]['settings']['lock_chat'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group chat has been unlocked'
+  end
+end
+
+ local function lock_group_all(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_all_lock = data[tostring(target)]['settings']['lock_all']
+  if group_all_lock == 'yes' then
+    return 'Group all is already locked'
+  else
+    data[tostring(target)]['settings']['lock_all'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group all has been locked'
+  end
+end
+local function unlock_group_all(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_all_lock = data[tostring(target)]['settings']['lock_all']
+  if group_all_lock == 'no' then
+    return 'Group all is not locked'
+  else
+    data[tostring(target)]['settings']['lock_all'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group all has been unlocked'
+  end
+end
+
+  local function lock_group_pars(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_pars_lock = data[tostring(target)]['settings']['lock_pars']
+  if group_pars_lock == 'yes' then
+    return 'Group persian is already locked'
+  else
+    data[tostring(target)]['settings']['lock_pars'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group persian has been locked'
+  end
+end
+local function unlock_group_pars(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_pars_lock = data[tostring(target)]['settings']['lock_pars']
+  if group_pars_lock == 'no' then
+    return 'Group persian is not locked'
+  else
+    data[tostring(target)]['settings']['lock_pars'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group persian has been unlocked'
+  end
+end
+  
+local function lock_group_china(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_china_lock = data[tostring(target)]['settings']['lock_china']
+  if group_cina_lock == 'yes' then
+    return 'Group china is already locked'
+  else
+    data[tostring(target)]['settings']['lock_china'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group china has been locked'
+  end
+end
+local function unlock_group_china(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_china_lock = data[tostring(target)]['settings']['lock_china']
+  if group_china_lock == 'no' then
+    return 'Group china is not locked'
+  else
+    data[tostring(target)]['settings']['lock_china'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group china has been unlocked'
+  end
+end
+ 
 local function set_public_membermod(msg, data, target)
   if not is_momod(msg) then
     return "For moderators only!"

@@ -5,15 +5,15 @@ local function run(msg, matches)
     local data = load_data(_config.moderation.data)
     if data[tostring(msg.to.id)] then
         if data[tostring(msg.to.id)]['settings'] then
-            if data[tostring(msg.to.id)]['settings']['lock_emoji'] then
-                lock_emoji = data[tostring(msg.to.id)]['settings']['lock_emoji']
+            if data[tostring(msg.to.id)]['settings']['lock_pars'] then
+                lock_pars = data[tostring(msg.to.id)]['settings']['lock_pars']
             end
         end
     end
     local chat = get_receiver(msg)
     local user = "user#id"..msg.from.id
     if lock_emoji == "yes" then
-        send_large_msg(chat, 'به دلیل  ارسال اموجی از گروه حذف شدید')
+        send_large_msg(chat, 'به دلیل فارسی صحبت کردن حذف شدید')
         chat_del_user(chat, user, ok_cb, true)
     end
 end

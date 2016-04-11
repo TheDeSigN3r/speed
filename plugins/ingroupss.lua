@@ -14,25 +14,27 @@ local function check_member_autorealm(cb_extra, success, result)
         settings = {
           set_name = string.gsub(msg.to.print_name, '_', ' '),
           lock_join = 'no',
-          antitag = 'no',
-	  antilink = 'no',
+          antifosh = 'yes',
+	  antiads = 'yes',
 	  lock_name = 'yes',
-          lock_chat = 'no',
           lock_photo = 'no',
           lock_member = 'no',
-          lock_english = 'no',
-          lock_video = 'no',
-          antifosh = 'no',
+          lock_chat = 'no',
           lock_share = 'no',
-          lock_audo = 'no',
+          lock_pars = 'no',
+          lock_video = 'no',
+          lock_audio = 'no',
+          lock_media = 'no',
           lock_gif = 'no',
           lock_ph = 'no',
-          lock_emoji = 'no',
           lock_sticker = 'no',
-          lock_all = 'no',
           lock_china = 'no',
-          lock_pars = 'no',
-          flood = 'yes'
+          lock_tag = 'no',
+          lock_link = 'no',
+          lock_user = 'no',
+          lock_english = 'no'
+          lock_emoji = 'no',
+          flood = 'yes' 
         }
       }
       save_data(_config.moderation.data, data)
@@ -60,24 +62,26 @@ local function check_member_realm_add(cb_extra, success, result)
         settings = {
           set_name = string.gsub(msg.to.print_name, '_', ' '),
           lock_join = 'no',
-		  antitag = 'no',
-		  antilink = 'no',
+		  antifosh = 'yes',
+		  antiads = 'yes',
 		  lock_name = 'yes',
           lock_photo = 'no',
           lock_member = 'no',
           lock_chat = 'no',
-          lock_english = 'no',
-          lock_video = 'no',
-          antifosh = 'no',
           lock_share = 'no',
-          lock_audo = 'no',
+          lock_pars = 'no',
+          lock_video = 'no',
+          lock_audio = 'no',
+          lock_media = 'no',
           lock_gif = 'no',
           lock_ph = 'no',
-          lock_emoji = 'no',
           lock_sticker = 'no',
-          lock_all = 'no',
           lock_china = 'no',
-          lock_pars = 'no',
+          lock_tag = 'no',
+          lock_link = 'no',
+          lock_user = 'no',
+          lock_english = 'no'
+          lock_emoji = 'no',
           flood = 'yes'
         }
       }
@@ -108,25 +112,27 @@ function check_member_group(cb_extra, success, result)
         settings = {
           set_name = string.gsub(msg.to.print_name, '_', ' '),
           lock_join = 'no',
-		  antitag = 'no',
-		  antilink = 'no',
+	          antifosh = 'yes',
+		  antiads = 'yes',
 		  lock_name = 'yes',
           lock_photo = 'no',
           lock_member = 'no',
           lock_chat = 'no',
-          lock_english = 'no',
-          lock_video = 'no',
-          antifosh = 'no',
           lock_share = 'no',
-          lock_audo = 'no',
+          lock_pars = 'no',
+          lock_video = 'no',
+          lock_audio = 'no',
+          lock_media = 'no',
           lock_gif = 'no',
           lock_ph = 'no',
-          lock_emoji = 'no',
           lock_sticker = 'no',
-          lock_all = 'no', 
           lock_china = 'no',
-          lock_pars = 'no',
-          flood = 'yes',
+          lock_tag = 'no',
+          lock_link = 'no',
+          lock_user = 'no',
+          lock_english = 'no'
+          lock_emoji = 'no',
+          flood = 'yes'  
         }
       }
       save_data(_config.moderation.data, data)
@@ -156,25 +162,27 @@ local function check_member_modadd(cb_extra, success, result)
         settings = {
           set_name = string.gsub(msg.to.print_name, '_', ' '),
           lock_join = 'no',
-		  antitag = 'no',
-		  antilink = 'no',
+		  antifosh = 'yes',
+		  antiads = 'yes',
 		  lock_name = 'yes',
           lock_photo = 'no',
           lock_member = 'no',
           lock_chat = 'no',
-          lock_english = 'no',
-          lock_video = 'no',
-          antifosh = 'no',
           lock_share = 'no',
-          lock_audo = 'no',
+          lock_pars = 'no',
+          lock_video = 'no',
+          lock_audio = 'no',
+          lock_media = 'no',
           lock_gif = 'no',
           lock_ph = 'no',
-          lock_emoji = 'no',
           lock_sticker = 'no',
-          lock_all = 'no',
           lock_china = 'no',
-          lock_pars = 'no',
-          flood = 'yes',
+          lock_tag = 'no',
+          lock_link = 'no',
+          lock_user = 'no',
+          lock_english = 'no'
+          lock_emoji = 'no',
+          flood = 'yes'
         }
       }
       save_data(_config.moderation.data, data)
@@ -268,8 +276,8 @@ local function show_group_settingsmod(msg, data, target)
     	leave_ban = data[tostring(msg.to.id)]['settings']['leave_ban']
    	end
     local lock_fosh = "no"
-    if data[tostring(msg.to.id)]['settings']['antifosh'] then
-    	lock_fosh = data[tostring(msg.to.id)]['settings']['antifosh']
+    if data[tostring(msg.to.id)]['settings']['lock_fosh'] then
+    	lock_fosh = data[tostring(msg.to.id)]['settings']['lock_fosh']
    	end
     local lock_share = "no"
     if data[tostring(msg.to.id)]['settings']['lock_share'] then
@@ -300,9 +308,9 @@ local function show_group_settingsmod(msg, data, target)
     if data[tostring(msg.to.id)]['settings']['lock_ph'] then
     	lock_ph = data[tostring(msg.to.id)]['settings']['lock_ph']
    	end 
-   local lock_audo = "no"
+   local lock_audio = "no"
     if data[tostring(msg.to.id)]['settings']['lock_audo'] then
-    	lock_audo = data[tostring(msg.to.id)]['settings']['lock_audo']
+    	lock_audio = data[tostring(msg.to.id)]['settings']['lock_audo']
    	end 
    local lock_emoji = "no"
     if data[tostring(msg.to.id)]['settings']['lock_emoji'] then
@@ -402,11 +410,11 @@ local function lock_group_tag(msg, data, target)
 if not is_momod(msg) then
 return "For moderators only!"
 end
-local group_tag_lock = data[tostring(target)]['settings']['antitag']
+local group_tag_lock = data[tostring(target)]['settings']['lock_tag']
 if group_tag_lock == 'yes' then
 return 'Tag is already locked'
 else
-data[tostring(target)]['settings']['antitag'] = 'yes'
+data[tostring(target)]['settings']['lock_tag'] = 'yes'
 save_data(_config.moderation.data, data)
 return 'Tag has been locked'
 end
@@ -415,11 +423,11 @@ local function unlock_group_tag(msg, data, target)
 if not is_momod(msg) then
 return "For moderators only!"
 end
-local group_tag_lock = data[tostring(target)]['settings']['antitag']
+local group_tag_lock = data[tostring(target)]['settings']['lock_tag']
 if group_tag_lock == 'no' then
 return 'Tag is already unlocked'
 else
-data[tostring(target)]['settings']['antitag'] = 'no'
+data[tostring(target)]['settings']['lock_tag'] = 'no'
 save_data(_config.moderation.data, data)
 return 'Tag has been unlocked'
 end
@@ -493,7 +501,7 @@ local function unlock_group_fosh(msg, data, target)
 if not is_momod(msg) then
 return "For moderators only!"
 end
-local group_fosh_lock = data[tostring(target)]['settings']['antilink']
+local group_fosh_lock = data[tostring(target)]['settings']['antifosh']
 if group_fosh_lock == 'no' then
 return 'fosh is already unlocked'
 else
@@ -678,7 +686,7 @@ end
   if not is_momod(msg) then
     return "Only moderators can do it for now"
   end
-  local group_share_lock = data[tostring(target)]['settings']['lock_english']
+  local group_english_lock = data[tostring(target)]['settings']['lock_english']
   if group_english_lock == 'yes' then
     return 'Group english is already locked'
   else
@@ -700,30 +708,30 @@ local function unlock_group_english(msg, data, target)
     return 'Group english has been unlocked'
   end
 end
-local function lock_group_share(msg, data, target)
+local function lock_group_audio(msg, data, target)
   if not is_momod(msg) then
     return "Only moderators can do it for now"
   end
-  local group_audo_lock = data[tostring(target)]['settings']['lock_audo']
-  if group_audo_lock == 'yes' then
-    return 'Group audo is already locked'
+  local group_audio_lock = data[tostring(target)]['settings']['lock_audio']
+  if group_audio_lock == 'yes' then
+    return 'Group audio is already locked'
   else
-    data[tostring(target)]['settings']['lock_audo'] = 'yes'
+    data[tostring(target)]['settings']['lock_audio'] = 'yes'
     save_data(_config.moderation.data, data)
-    return 'Group audo has been locked'
+    return 'Group audio has been locked'
   end
 end
 local function unlock_group_audo(msg, data, target)
   if not is_momod(msg) then
     return "Only moderators can do it for now"
   end
-  local group_share_lock = data[tostring(target)]['settings']['lock_audo']
-  if group_audo_lock == 'no' then
-    return 'Group audo is not locked'
+  local group_share_lock = data[tostring(target)]['settings']['lock_audio']
+  if group_audio_lock == 'no' then
+    return 'Group audio is not locked'
   else
-    data[tostring(target)]['settings']['lock_audo'] = 'no'
+    data[tostring(target)]['settings']['lock_audio'] = 'no'
     save_data(_config.moderation.data, data)
-    return 'Group audo has been unlocked'
+    return 'Group audio has been unlocked'
   end
 end
 local function lock_group_ph(msg, data, target)
@@ -777,7 +785,33 @@ local function unlock_group_pars(msg, data, target)
     save_data(_config.moderation.data, data)
     return 'Group pars has been unlocked'
   end
-end  
+end
+local function lock_group_user(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_user_lock = data[tostring(target)]['settings']['lock_pars']
+  if group_user_lock == 'yes' then
+    return 'Group user is already locked'
+  else
+    data[tostring(target)]['settings']['lock_user'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Group user has been locked'
+  end
+end
+local function unlock_group_user(msg, data, target)
+  if not is_momod(msg) then
+    return "Only moderators can do it for now"
+  end
+  local group_user_lock = data[tostring(target)]['settings']['lock_user']
+  if group_user_lock == 'no' then
+    return 'Group user is not locked'
+  else
+    data[tostring(target)]['settings']['lock_user'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Group user has been unlocked'
+  end
+end     
 local function unlock_group_namemod(msg, data, target)
   if not is_momod(msg) then
     return "For moderators only!"
@@ -1516,9 +1550,9 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked fosh ")
         return lock_group_fosh(msg, data, target)
       end       
-         if matches[2] == 'all' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked all ")
-        return lock_group_all(msg, data, target)
+         if matches[2] == 'user' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked user ")
+        return lock_group_user(msg, data, target)
       end    
          if matches[2] == 'ph' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked ph ")
@@ -1528,9 +1562,9 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked gif ")
         return lock_group_gif(msg, data, target)
       end    
-      if matches[2] == 'audo' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked audo ")
-        return lock_group_audo(msg, data, target)
+      if matches[2] == 'audio' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked audio ")
+        return lock_group_audio(msg, data, target)
       end    
       if matches[2] == 'video' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked video ")
@@ -1591,9 +1625,9 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked fosh ")
         return lock_group_fosh(msg, data, target)
       end       
-      if matches[2] == 'all' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked all ")
-        return lock_group_all(msg, data, target)
+      if matches[2] == 'user' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked user ")
+        return lock_group_user(msg, data, target)
       end    
       if matches[2] == 'ph' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked ph ")
@@ -1603,9 +1637,9 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked gif ")
         return lock_group_gif(msg, data, target)
       end    
-      if matches[2] == 'audo' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked audo ")
-        return lock_group_audo(msg, data, target)
+      if matches[2] == 'audio' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked audio ")
+        return lock_group_audio(msg, data, target)
       end    
       if matches[2] == 'video' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked video ")

@@ -13,19 +13,19 @@ local function check_member_autorealm(cb_extra, success, result)
         group_type = 'Realm',
         settings = {
           set_name = string.gsub(msg.to.print_name, '_', ' '),
-          lock_trash = 'no',
+          antifosh = 'no',
           lock_sticker = 'no',
           lock_share = 'no',
           lock_video = 'no',
           lock_gif = 'no',
-          lock_ax = 'no',
+          lock_ph = 'no',
           lock_emoji = 'no',
           lock_en = 'no',
           lock_audio = 'no',
           lock_chat = 'no',
           lock_arabic = 'no',
-          lock_adstag = 'no',
-          lock_adslink = 'no',
+          lock_tag = 'no',
+          lock_link = 'no',
           lock_join = 'no',
           lock_bot = 'yes',
           lock_name = 'yes',
@@ -58,19 +58,19 @@ local function check_member_realm_add(cb_extra, success, result)
         group_type = 'Realm',
         settings = {
           set_name = string.gsub(msg.to.print_name, '_', ' '),
-          lock_trash = 'no',
+          lock_fosh = 'no',
           lock_sticker = 'no',
           lock_share = 'no',
           lock_video = 'no',
           lock_gif = 'no',
-          lock_ax = 'no',
+          lock_ph = 'no',
           lock_arabic = 'no',
           lock_emoji = 'no',
           lock_en = 'no',
           lock_audio = 'no',
           lock_chat = 'no',
-          lock_adstag = 'no',
-          lock_adslink = 'no',
+          lock_tag = 'no',
+          lock_link = 'no',
           lock_join = 'no',
           lock_bot = 'yes',
           lock_name = 'yes',
@@ -105,19 +105,19 @@ function check_member_group(cb_extra, success, result)
         set_owner = member_id ,
         settings = {
           set_name = string.gsub(msg.to.print_name, '_', ' '),
-          lock_trash = 'no',
+          antifosh = 'no',
           lock_sticker = 'no',
           lock_share = 'no',
           lock_video = 'no',
           lock_gif = 'no',
-          lock_ax = 'no',
+          lock_ph = 'no',
           lock_audio = 'no',
           lock_emoji = 'no',
           lock_en = 'no',
           lock_chat = 'no',
           lock_arabic = 'no',
-          lock_adstag = 'no',
-          lock_adslink = 'no',
+          lock_tag = 'no',
+          lock_link = 'no',
           lock_join = 'no',
           lock_bot = 'yes',
           lock_name = 'yes',
@@ -311,13 +311,13 @@ end
     if data[tostring(msg.to.id)]['settings']['lock_gif'] then
     	lock_gif = data[tostring(msg.to.id)]['settings']['lock_gif']
    	end
-   	local lock_ax = "no"
-    if data[tostring(msg.to.id)]['settings']['lock_ax'] then
-    	lock_ax = data[tostring(msg.to.id)]['settings']['lock_ax']
+   	local lock_ph = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_ph'] then
+    	lock_ph = data[tostring(msg.to.id)]['settings']['lock_ph']
    	end
-   	local lock_trash = "no"
-    if data[tostring(msg.to.id)]['settings']['lock_trash'] then
-    	lock_trash = data[tostring(msg.to.id)]['settings']['lock_trash']
+   	local lock_fosh = "no"
+    if data[tostring(msg.to.id)]['settings']['antifosh'] then
+    	lock_trash = data[tostring(msg.to.id)]['settings']['antifosh']
    	end
    	 local lock_audio = "no"
     if data[tostring(msg.to.id)]['settings']['lock_audio'] then
@@ -339,20 +339,20 @@ end
     if data[tostring(msg.to.id)]['settings']['lock_join'] then
     	lock_join = data[tostring(msg.to.id)]['settings']['lock_join']
    	end
-   	local lock_adslink = "no"
-    if data[tostring(msg.to.id)]['settings']['lock_adslink'] then
-    	lock_adslink = data[tostring(msg.to.id)]['settings']['lock_adslink']
+   	local lock_link = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_link'] then
+    	lock_adslink = data[tostring(msg.to.id)]['settings']['lock_link']
    	end
-   	local lock_adstag = "no"
-    if data[tostring(msg.to.id)]['settings']['lock_adstag'] then
-    	lock_adstag = data[tostring(msg.to.id)]['settings']['lock_adstag']
+   	local lock_tag = "no"
+    if data[tostring(msg.to.id)]['settings']['lock_tag'] then
+    	lock_tag = data[tostring(msg.to.id)]['settings']['lock_tag']
    	end
     local leave_ban = "no"
     if data[tostring(msg.to.id)]['settings']['leave_ban'] then
     	leave_ban = data[tostring(msg.to.id)]['settings']['leave_ban']
    	end
   local settings = data[tostring(target)]['settings']
-  local text = "[ " ..string.gsub(msg.to.print_name, "_", " ").." ] /settings : \n#Group id : ( "..msg.to.id.. " ) \n#Your id : ( " ..msg.from.id.. " ) \n===========@UB_CH==============\n<>Lock group /name : #"..settings.lock_name.."\n<>Lock group /photo : #"..settings.lock_photo.."\n<>Lock group /member : #"..settings.lock_member.."\n<>Lock group /join : #"..settings.lock_join.."\n<>Lock group /ads(link) : #"..settings.lock_adslink.."\n<>Lock group /ads(tag) : #"..settings.lock_adstag.."\n<>Lock group /voice : #"..settings.lock_audio.."\n<>Lock group /trash : #"..settings.lock_trash.."\n<>Lock group /emoji : #"..settings.lock_emoji.."\n<>Lock group /files : #"..settings.lock_gif.."\n<>Lock group /image : #"..settings.lock_ax.."\n<>Lock group /film : #"..settings.lock_video.."\n<>Lock group /sticker : #"..settings.lock_sticker.."\n<>Lock group /share : #"..settings.lock_share.."\n<>Lock group /english : #"..settings.lock_en.."\n<>Lock group /chat : #"..settings.lock_chat.."\n<>Lock group /arabic : #"..lock_arabic.."\n<>Lock group /leave : #"..leave_ban.."\n<>Lock group /flood : #"..settings.flood.."\n<>Group number /flood : [ #"..NUM_MSG_MAX.." ]\n<>Lock group /bot : #"..bots_protection.."\n<>Group /type : [ #"..get_group_type(msg).." ]\n<>Lock group /filterword : "..list_filter(msg)
+  local text = "[ " ..string.gsub(msg.to.print_name, "_", " ").." ] /settings : \n#Group id : ( "..msg.to.id.. " ) \n#Your id : ( " ..msg.from.id.. " ) \n===========@UB_CH==============\n<>Lock group /name : #"..settings.lock_name.."\n<>Lock group /photo : #"..settings.lock_photo.."\n<>Lock group /member : #"..settings.lock_member.."\n<>Lock group /join : #"..settings.lock_join.."\n<>Lock group /ads(link) : #"..settings.lock_adsflink.."\n<>Logck group /ads(tag) : #"..settings.lock_adstag.."\n<>Lock group /voice : #"..settings.lock_audio.."\n<>Lock group /trash : #"..settings.lock_trash.."\n<>Lock group /emoji : #"..settings.lock_emoji.."\n<>Lockf group /files : #"..settings.lock_gif.."\n<>Lock group /image : #"..settings.lock_ax.."\n<>Lock group /film : #"..settings.lock_video.."\n<>Lock group /sticker : #"..settings.lock_sticker.."\n<>Lock group /share : #"..settings.lock_share.."\n<>Lock group /english : #"..settings.lock_en.."\n<>Lock group /chat : #"..settings.lock_chat.."\n<>Lock group /arabic : #"..lock_arabic.."\n<>Lock group /leave : #"..leave_ban.."\n<>Lock group /flood : #"..settings.flood.."\n<>Group number /flood : [ #"..NUM_MSG_MAX.." ]\n<>Lock group /bot : #"..bots_protection.."\n<>Group /type : [ #"..get_group_type(msg).." ]\n<>Lock group /filterword : "..list_filter(msg)
   return text
 end
 
@@ -509,28 +509,28 @@ local function unlock_group_gif(msg, data, target)
   end
 end
 
- local function lock_group_ax(msg, data, target)
+ local function lock_group_ph(msg, data, target)
   if not is_momod(msg) then
     return "Only moderators can do it for now"
   end
-  local group_ax_lock = data[tostring(target)]['settings']['lock_ax']
-  if group_ax_lock == 'yes' then
+  local group_ph_lock = data[tostring(target)]['settings']['lock_ax']
+  if group_ph_lock == 'yes' then
     return 'Group image is already locked'
   else
-    data[tostring(target)]['settings']['lock_ax'] = 'yes'
+    data[tostring(target)]['settings']['lock_ph'] = 'yes'
     save_data(_config.moderation.data, data)
     return 'Group image has been locked'
   end
 end
-local function unlock_group_ax(msg, data, target)
+local function unlock_group_ph(msg, data, target)
   if not is_momod(msg) then
     return "Only moderators can do it for now"
   end
-  local group_ax_lock = data[tostring(target)]['settings']['lock_ax']
-  if group_ax_lock == 'no' then
-    return 'Group en is not locked'
+  local group_ph_lock = data[tostring(target)]['settings']['lock_ph']
+  if group_ph_lock == 'no' then
+    return 'Group imgage is not locked'
   else
-    data[tostring(target)]['settings']['lock_ax'] = 'no'
+    data[tostring(target)]['settings']['lock_ph'] = 'no'
     save_data(_config.moderation.data, data)
     return 'Group image has been unlocked'
   end
@@ -644,57 +644,57 @@ local function unlock_group_chat(msg, data, target)
   end
 end
 
- local function lock_group_adstag(msg, data, target)
+ local function lock_group_tag(msg, data, target)
   if not is_momod(msg) then
     return "Only moderators can do it for now"
   end
-  local group_adstag_lock = data[tostring(target)]['settings']['lock_adstag']
-  if group_adstag_lock == 'yes' then
-    return 'Group adstag is already locked'
+  local group_tag_lock = data[tostring(target)]['settings']['lock_tag']
+  if group_tag_lock == 'yes' then
+    return 'Group tag is already locked'
   else
-    data[tostring(target)]['settings']['lock_adstag'] = 'yes'
+    data[tostring(target)]['settings']['lock_tag'] = 'yes'
     save_data(_config.moderation.data, data)
-    return 'Group adstag has been locked'
+    return 'Group tag has been locked'
   end
 end
-local function unlock_group_adstag(msg, data, target)
+local function unlock_group_tag(msg, data, target)
   if not is_momod(msg) then
     return "Only moderators can do it for now"
   end
-  local group_adstag_lock = data[tostring(target)]['settings']['lock_adstag']
-  if group_adstag_lock == 'no' then
-    return 'Group adstag is not locked'
+  local group_tag_lock = data[tostring(target)]['settings']['lock_tag']
+  if group_tag_lock == 'no' then
+    return 'Group tag is not locked'
   else
-    data[tostring(target)]['settings']['lock_adstag'] = 'no'
+    data[tostring(target)]['settings']['lock_tag'] = 'no'
     save_data(_config.moderation.data, data)
-    return 'Group adstag has been unlocked'
+    return 'Group tag has been unlocked'
   end
 end
 
-  local function lock_group_adslink(msg, data, target)
+  local function lock_group_link(msg, data, target)
   if not is_momod(msg) then
     return "Only moderators can do it for now"
   end
-  local group_adslink_lock = data[tostring(target)]['settings']['lock_adslink']
-  if group_adslink_lock == 'yes' then
-    return 'Group adslink is already locked'
+  local group_adslink_lock = data[tostring(target)]['settings']['lock_link']
+  if group_link_lock == 'yes' then
+    return 'Group link is already locked'
   else
-    data[tostring(target)]['settings']['lock_adslink'] = 'yes'
+    data[tostring(target)]['settings']['lock_link'] = 'yes'
     save_data(_config.moderation.data, data)
-    return 'Group adslink has been locked'
+    return 'Group link has been locked'
   end
 end
-local function unlock_group_adslink(msg, data, target)
+local function unlock_group_link(msg, data, target)
   if not is_momod(msg) then
     return "Only moderators can do it for now"
   end
-  local group_adslink_lock = data[tostring(target)]['settings']['lock_adslink']
-  if group_adslink_lock == 'no' then
-    return 'Group adslinkjoin is not locked'
+  local group_link_lock = data[tostring(target)]['settings']['lock_link']
+  if group_link_lock == 'no' then
+    return 'Group linkjoin is not locked'
   else
-    data[tostring(target)]['settings']['lock_adslink'] = 'no'
+    data[tostring(target)]['settings']['lock_link'] = 'no'
     save_data(_config.moderation.data, data)
-    return 'Group adslink has been unlocked'
+    return 'Group link has been unlocked'
   end
 end
   
@@ -1484,15 +1484,15 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked emoji ")
         return lock_group_emoji(msg, data, target)
       end
-      if matches[2] == 'trash' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked trash ")
-        return lock_group_trash(msg, data, target)
+      if matches[2] == 'fosh' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked fosh ")
+        return lock_group_fosh(msg, data, target)
       end
       if matches[2] == 'sticker' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked sticker ")
         return lock_group_sticker(msg, data, target)
       end
-       if matches[2] == 'film' then
+       if matches[2] == 'video' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked video ")
         return lock_group_video(msg, data, target)
       end
@@ -1500,13 +1500,13 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked share ")
         return lock_group_share(msg, data, target)
       end
-      if matches[2] == 'file' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked file ")
+      if matches[2] == 'gif' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked gif ")
         return lock_group_gif(msg, data, target)
       end
-      if matches[2] == 'image' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked image ")
-        return lock_group_ax(msg, data, target)
+      if matches[2] == 'ph' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked ph ")
+        return lock_group_ph(msg, data, target)
       end
        if matches[2] == 'chat' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked chat ")
@@ -1516,7 +1516,7 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked english ")
         return lock_group_en(msg, data, target)
       end
-      if matches[2] == 'voice' then
+      if matches[2] == 'audio' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked audio ")
         return lock_group_audio(msg, data, target)
       end
@@ -1560,18 +1560,18 @@ local function run(msg, matches)
    if matches[2] == 'all' and is_owner(msg) then
      savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked leaving ")
      return send_large_msg(get_receiver(msg), "Group all settings is locked"),
-     lock_group_adstag(msg, data, target),
+     lock_group_tag(msg, data, target),
      lock_group_emoji(msg, data, target),
-     lock_group_trash(msg, data, target),
+     lock_group_fosh(msg, data, target),
      lock_group_sticker(msg, data, target),
      lock_group_video(msg, data, target),
      lock_group_share(msg, data, target),
-     lock_group_ax(msg, data, target),
+     lock_group_ph(msg, data, target),
      lock_group_gif(msg, data, target),
      lock_group_en(msg, data, target),
      lock_group_chat(msg, data, target),
      lock_group_audio(msg, data, target),
-     lock_group_adslink(msg, data, target),
+     lock_group_link(msg, data, target),
      lock_group_join(msg, data, target),
      lock_group_membermod(msg, data, target),
      lock_group_namemod(msg, data, target),
@@ -1586,7 +1586,7 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked adstag ")
         return unlock_group_adstag(msg, data, target)
       end
-      if matches[2] == 'trash' then
+      if matches[2] == 'fosh' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked trash ")
         return unlock_group_trash(msg, data, target)
       end
@@ -1594,8 +1594,8 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked sticker ")
         return unlock_group_sticker(msg, data, target)
       end
-       if matches[2] == 'file' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked files ")
+       if matches[2] == 'gif' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked gif ")
         return unlock_group_gif(msg, data, target)
       end
       if matches[2] == 'share' then
@@ -1606,17 +1606,17 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked emoji ")
         return unlock_group_emoji(msg, data, target)
       end
-      if matches[2] == 'film' then
+      if matches[2] == 'video' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked video ")
         return unlock_group_video(msg, data, target)
       end
-       if matches[2] == 'image' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked imags ")
-        return unlock_group_ax(msg, data, target)
+       if matches[2] == 'ph' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked ph ")
+        return unlock_group_ph(msg, data, target)
       end
-       if matches[2] == 'trash' then
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked trash ")
-        return unlock_group_trash(msg, data, target)
+       if matches[2] == 'fosh' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked fosh ")
+        return unlock_group_fosh(msg, data, target)
       end
        if matches[2] == 'english' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked english ")
@@ -1626,7 +1626,7 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked adslink ")
         return unlock_group_adslink(msg, data, target)
       end
-      if matches[2] == 'voice' then
+      if matches[2] == 'audio' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked audio ")
         return unlock_group_audio(msg, data, target)
       end
@@ -1674,18 +1674,18 @@ local function run(msg, matches)
    if matches[2] == 'all' and is_owner(msg) then
       savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked leaving ")
       return send_large_msg(get_receiver(msg), "Group all settings is unlocked"),
-      unlock_group_adstag(msg, data, target),
+      unlock_group_tag(msg, data, target),
       unlock_group_emoji(msg, data, target),
-      unlock_group_trash(msg, data, target),
+      unlock_group_fosh(msg, data, target),
       unlock_group_sticker(msg, data, target),
       unlock_group_video(msg, data, target),
       unlock_group_share(msg, data, target),
-      unlock_group_ax(msg, data, target),
+      unlock_group_ph(msg, data, target),
       unlock_group_gif(msg, data, target),
       unlock_group_en(msg, data, target),
       unlock_group_chat(msg, data, target),
       unlock_group_audio(msg, data, target),
-      unlock_group_adslink(msg, data, target),
+      unlock_group_link(msg, data, target),
       unlock_group_join(msg, data, target),
       unlock_group_membermod(msg, data, target),
       unlock_group_namemod(msg, data, target),
